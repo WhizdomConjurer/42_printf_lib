@@ -6,7 +6,7 @@
 /*   By: whi <whi@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 14:16:28 by whi               #+#    #+#             */
-/*   Updated: 2025/01/31 16:04:49 by whi              ###   ########.fr       */
+/*   Updated: 2025/01/31 16:22:23 by whi              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,18 @@ typedef struct s_count
 	int				count;
 	va_list			args;
 	const char		*str;
-	int				left_align;// Flag: '-'
-	int				zero_fill;// Flag: '0'
-	int				width;// Breite
-	int				precision;// Präzision
-	int				alt_form;// Flag: '#'
-	int				show_sign;// Flag: '+'
-	int				space;// Flag: ' '
+	int				f_left;// Flag: '-'
+	int				f_zero;// Flag: '0'
+	int				f_width;// Breite
+	int				f_precision;// Präzision
+	int				f_hash;// Flag: '#'
+	int				f_sign;// Flag: '+'
+	int				f_space;// Flag: ' '
 	char			conversion;
 }					t_count;
 
-void	parse_flags(const char **format, t_flags *flags, va_list args);
 void	ft_prozess(t_count main_data, int z);
 void	ft_print_char(t_count main_data, int x);
 int		ft_printf(const char *str, ...);
-void	parse_precision(const char **format, t_flags *flags, va_list args);
-void	parse_width_and_flags(const char **format, t_flags *flags,
-			va_list args);
-void	ft_print_percent(t_count main_data);
 
 #endif
